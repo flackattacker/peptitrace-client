@@ -1,0 +1,255 @@
+/* TipTap Rich Text Editor Styles */
+.tiptap-editor {
+  outline: none;
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+  padding: 12px;
+  min-height: 200px;
+  font-size: 14px;
+  line-height: 1.6;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.tiptap-editor:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+.tiptap-editor p {
+  margin: 0.5em 0;
+}
+
+.tiptap-editor p:first-child {
+  margin-top: 0;
+}
+
+.tiptap-editor p:last-child {
+  margin-bottom: 0;
+}
+
+.tiptap-editor strong {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.tiptap-editor em {
+  font-style: italic;
+}
+
+.tiptap-editor h1,
+.tiptap-editor h2,
+.tiptap-editor h3,
+.tiptap-editor h4,
+.tiptap-editor h5,
+.tiptap-editor h6 {
+  font-weight: 600;
+  margin: 1em 0 0.5em 0;
+  color: hsl(var(--foreground));
+}
+
+.tiptap-editor h1 {
+  font-size: 1.5em;
+}
+
+.tiptap-editor h2 {
+  font-size: 1.3em;
+}
+
+.tiptap-editor h3 {
+  font-size: 1.1em;
+}
+
+.tiptap-editor ul,
+.tiptap-editor ol {
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+.tiptap-editor ul li {
+  list-style-type: disc;
+}
+
+.tiptap-editor ol li {
+  list-style-type: decimal;
+}
+
+.tiptap-editor li {
+  margin: 0.25em 0;
+}
+
+.tiptap-editor blockquote {
+  border-left: 3px solid hsl(var(--border));
+  margin: 1em 0;
+  padding-left: 1em;
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+}
+
+.tiptap-editor code {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+.tiptap-editor pre {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.tiptap-editor pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.tiptap-editor a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tiptap-editor a:hover {
+  text-decoration: none;
+}
+
+.tiptap-editor hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 2em 0;
+}
+
+/* Placeholder styles */
+.tiptap-editor .is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+  height: 0;
+}
+
+/* Selection styles */
+.tiptap-editor .ProseMirror-selectednode {
+  outline: 2px solid hsl(var(--ring));
+}
+
+/* Focus styles for better accessibility */
+.tiptap-editor:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Toolbar styles */
+.tiptap-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  border-top-left-radius: calc(var(--radius) - 2px);
+  border-top-right-radius: calc(var(--radius) - 2px);
+  background: hsl(var(--background));
+}
+
+.tiptap-toolbar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tiptap-toolbar-button:hover {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
+.tiptap-toolbar-button.is-active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.tiptap-toolbar-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tiptap-toolbar-button:disabled:hover {
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+}
+
+.tiptap-toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background: hsl(var(--border));
+  margin: 0 4px;
+}
+
+/* Character count styles */
+.tiptap-character-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid hsl(var(--border));
+  border-top: none;
+  border-bottom-left-radius: calc(var(--radius) - 2px);
+  border-bottom-right-radius: calc(var(--radius) - 2px);
+  background: hsl(var(--muted) / 0.3);
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+}
+
+.tiptap-character-count.warning {
+  color: hsl(var(--destructive));
+}
+
+.tiptap-character-count.error {
+  color: hsl(var(--destructive));
+  background: hsl(var(--destructive) / 0.1);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .tiptap-editor {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  
+  .tiptap-toolbar {
+    background: hsl(var(--background));
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .tiptap-toolbar {
+    padding: 6px;
+    gap: 2px;
+  }
+  
+  .tiptap-toolbar-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .tiptap-editor {
+    padding: 10px;
+    min-height: 150px;
+  }
+}
